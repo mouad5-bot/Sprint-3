@@ -1,8 +1,16 @@
-body {
-    background-color: bisque;
+.main{
+    background-color: rgb(243, 235, 233);
 }
 
 .navbar img {
-    height: 3rem;
-    width: 10rem;
+    height: 5rem;
+    width: 15rem;
+}
+
+.card {
+    width: 25rem;
+    margin: 5rem ;
+}
+.footer{
+    background-color: rgb(243, 235, 233);
 }

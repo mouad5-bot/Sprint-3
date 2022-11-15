@@ -13,49 +13,55 @@
 	<!-- ================== END core-css ================== -->
 </head>
 <body>
-    <div class="bg-">
 		<!-- BEGIN #header -->
-		<div class="navbar navbar-dark bg-dark ">
-			<div  class="d-flex align-items-center  ">
-					<div> 
-						<a href="index.php"><span class="ms-4"> <img src="./Assets/image/logo.png" alt="logo"> </span></a>
-					</div>
-					<div class="">
-						<span class="bg-white "> <i class="bi bi-person-circle  icon-large"></i> Mouad Fifel</span>
-					</div>	
-			</div>	
+		<div class="navbar navbar-dark bg-dark justify-content-between ">
+				<div> 
+					<a href="index.php"><span class="ms-4"> <img src="./Assets/image/logo.png" alt="logo"> </span></a>
+				</div>
+				<div class="d-flex align-items-center h3">
+					<span class="text-white "> <i class="bi bi-person-circle "></i> Admin</span>
+				</div>	
+				<div class="d-flex align-items-center h3">
+					<span class="text-white "> <i class="bi bi-box-arrow-right"></i> logout</span>
+				</div>	
 		</div>
+		<!-- Finished #header -->
 
-	
-		
 
-		<div class="card w-25 mt-5 ">
-			<div class="card-body">
-				<h1 class="card-title text-info text-center mb-3">Sign in</h1>
-				<form methode="POST">
-					<div class="">
-						<div class="mb-3">
-							<label for="email" class="form-label">Adress email</label>
-							<input type="email" class="form-control" id="email" placeholder="veuillez entrez votre email">
-						</div>
-						<div class="mb-3">
-							<label for="password" class="form-label">password</label>
-							<input type="password" class="form-control" id="password" placeholder="veuiller entrez votre mot de pass ">
-						</div>
-						<div class="d-grid gap-2">
-							<button class="btn btn-info text-white" type="button">Button</button>
-							<span>Don't have an account ? <a href=""> Signup now </a></span>
-						</div>
-					</div>	
-				</form>
+		<div class="d-flex main">
+			<div>
+				<img src="./Assets/image/login.jpg" alt="login">
+			</div>
+			<div class="card">
+				<div class="card-body">
+					<h1 class="card-title text-info text-center mb-3">Sign in</h1>
+					<form method="POST">
+						<div class="">
+							<div class="mb-3">
+								<label for="email" class="form-label">Adress email</label>
+								<input type="email" class="form-control" id="email" placeholder="veuillez entrez votre email">
+							</div>
+							<div class="mb-3">
+								<label for="password" class="form-label">password</label>
+								<input type="password" class="form-control" id="password" placeholder="veuiller entrez votre mot de pass ">
+							</div>
+							<div class="d-grid gap-2">
+								<button class="btn btn-info text-white" type="button">Button</button>
+								<span>Don't have an account ? <a href=""> Signup now </a></span>
+							</div>
+						</div>	
+					</form>
+				</div>
 			</div>
 		</div>
-		
-	</div>
 
+		<!-- BEGIN #footer -->
+		<div class="footer">
+			<p>©  2020 YouCode - All Rights Reserved.</p>
+		</div>
+		<!-- Finished #footer -->
 
 	<!-- ================== BEGIN core-js ================== -->
-	<!-- JavaScript Bundle with Popper -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<!-- ================== END core-js ================== -->
