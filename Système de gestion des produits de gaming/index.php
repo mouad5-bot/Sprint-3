@@ -1,5 +1,5 @@
 <?php
-    include('scripts.php');
+    include('config/scripts.php');
 ?>
 
 <head>
@@ -19,45 +19,19 @@
 <body>
 		<!-- BEGIN #header -->
 		<div class="navbar navbar-dark bg-dark justify-content-between ">
-				<div> 
-					<a href="index.php"><span class="ms-4"> <img src="./Assets/image/logo.png" alt="logo"> </span></a>
-				</div>
-				<div class="d-flex align-items-center h4">
-					<span class="text-white "> <i class="bi bi-person-circle "></i> Admin</span>
-				</div>	
-				<div class="d-flex align-items-center h5 me-5">
-					<span class="text-white "> <i class="bi bi-box-arrow-right"></i> logout</span>
-				</div>	
+			<div> 
+				<a href="index.php"><span class="ms-4"> <img src="./Assets/image/logo.png" alt="logo"> </span></a>
+			</div>
+			<div class="d-flex align-items-center h4">
+				<span class="text-white "> <i class="bi bi-person-circle "></i> Admin</span>
+			</div>	
+			<div class="d-flex align-items-center h5 me-5">
+				<span class="text-white "> <i class="bi bi-box-arrow-right"></i> logout</span>
+			</div>	
 		</div>
 		<!-- Finished #header -->
 
-
-		<div class="main d-flex">
-			<div>
-				<img src="./Assets/image/login.png" alt="login">
-			</div>
-			<div class="card">
-				<div class="card-body">
-					<h1 class="card-title text-info text-center mb-3">Sign in</h1>
-					<form method="POST" action="#">
-						<div class="">
-							<div class="mb-3">
-								<label for="email" class="form-label">Adress email</label>
-								<input type="email" class="form-control" id="email" placeholder="veuillez entrez votre email">
-							</div>
-							<div class="mb-3">
-								<label for="password" class="form-label">password</label>
-								<input type="password" class="form-control" id="password" placeholder="veuiller entrez votre mot de pass ">
-							</div>
-							<div class="d-grid gap-2">
-								<button class="btn btn-info text-white" type="submit" name="log in">log in</button>
-								<span>Don't have an account ? <a href=""> Signup now </a></span>
-							</div>
-						</div>	
-					</form>
-				</div>
-			</div>
-		</div>
+		
 
 		<!-- BEGIN #footer -->
 		<div class="footer">
