@@ -1,3 +1,7 @@
+<?php
+    include('scripts.php');
+?>
+
 <head>
 	<meta charset="utf-8" />
 	<title>gérer les produits</title>
@@ -18,24 +22,24 @@
 				<div> 
 					<a href="index.php"><span class="ms-4"> <img src="./Assets/image/logo.png" alt="logo"> </span></a>
 				</div>
-				<div class="d-flex align-items-center h3">
+				<div class="d-flex align-items-center h4">
 					<span class="text-white "> <i class="bi bi-person-circle "></i> Admin</span>
 				</div>	
-				<div class="d-flex align-items-center h3">
+				<div class="d-flex align-items-center h5 me-5">
 					<span class="text-white "> <i class="bi bi-box-arrow-right"></i> logout</span>
 				</div>	
 		</div>
 		<!-- Finished #header -->
 
 
-		<div class="d-flex main">
+		<div class="main d-flex">
 			<div>
-				<img src="./Assets/image/login.jpg" alt="login">
+				<img src="./Assets/image/login.png" alt="login">
 			</div>
 			<div class="card">
 				<div class="card-body">
 					<h1 class="card-title text-info text-center mb-3">Sign in</h1>
-					<form method="POST">
+					<form method="POST" action="#">
 						<div class="">
 							<div class="mb-3">
 								<label for="email" class="form-label">Adress email</label>
@@ -46,7 +50,7 @@
 								<input type="password" class="form-control" id="password" placeholder="veuiller entrez votre mot de pass ">
 							</div>
 							<div class="d-grid gap-2">
-								<button class="btn btn-info text-white" type="button">Button</button>
+								<button class="btn btn-info text-white" type="submit" name="log in">log in</button>
 								<span>Don't have an account ? <a href=""> Signup now </a></span>
 							</div>
 						</div>	
