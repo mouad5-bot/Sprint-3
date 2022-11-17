@@ -10,7 +10,7 @@
 		include('../includes/navbar.php');
 	?>
 
-<div class="main d-flex">
+	<div class="main d-flex">
 			<div>
 				<img src="../Assets/image/login.png" alt="login">
 			</div>
@@ -29,7 +29,7 @@
 							</div>
 							<div class="d-grid gap-2">
 								<button class="btn btn-info text-white" type="submit" name="login">log in</button>
-								<span>Don't have an account ? <a href="Signup.php"> Signup now </a></span>
+								<span>Don't have an account ? <a href="../pages/Signup.php"> Signup now </a></span>
 							</div>
 						</div>	
 					</form>
