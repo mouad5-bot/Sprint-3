@@ -3,25 +3,26 @@
     include('connection.php');
 
     //ROUTING
-    if(isset($_POST['submit']))   login();
-    if(isset($_POST['Sing up']))  signup();
+    if(isset($_POST['login']))   login();
+    if(isset($_POST['Singup']))  signup();
     if(isset($_POST['update']))  update();
     if(isset($_POST['delete']))  delete();
 
-    function login() 
+    function signup() 
     {
         //CODE HERE 
-        $email    = $_POST['email'];
-        $password = $_POST['password'];
+        $full_name    = $_POST['full_name'];
+        $email        = $_POST['email'];
+        $password     = $_POST['password'];
 
         //SQL INSERT
 
-        $req = "INSERT INTO user ( email, password)
-        VALUES(  '$email', '$password')";
+        $req = "INSERT INTO user ( full_name, email, password)
+        VALUES( '$full_name', '$email', '$password')";
         
         $data = mysqli_query($GLOBALS['connection'],$req);
 
-        $_SESSION['message'] = "login has been successfully !";
+        $_SESSION['message'] = "your sing up has been successfully !";
 		header('location: index.php');
  
         mysqli_close($GLOBALS['connection']);  
