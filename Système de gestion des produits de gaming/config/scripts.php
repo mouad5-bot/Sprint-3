@@ -2,17 +2,30 @@
     //INCLUDE DATABASE FILE
     include('connection.php');
     session_start();
+    
+    if(!isset($_SESSION['email'])) header("location: pages/login.php");
 
     //ROUTING
-    if(isset($_POST['login']))   save_login();
+    if(isset($_POST['login']))   login();
     if(isset($_POST['singup']))  signup();
     if(isset($_POST['update']))  update();
     if(isset($_POST['delete']))  delete();
+    if(isset($_GET['logout']))  logout();
 
-    function save_login(){
+    function login(){
         //CODE HERE
         $email    = htmlspecialchars($_POST['email']) ;   //htmlspecialchars c'est pour eviter d'exicuter les tags de html  
         $password = md5($_POST['password']);             //md5 pour hide le mote pass 
+
+        //SQL INSERT
+        $requet = "SELECT * FROM user WHERE email = '$email' AND password = '$password'";
+        if(mysqli_num_rows(mysqli_query($GLOBALS['connection'],$requet))>0) //c'est pour tester que user est exister 
+        {
+            $_SESSION['email'] = $email;    
+            header('location: ../index.php');
+        }else{
+            echo "error";
+        }
     }
 
     function signup() 
@@ -35,6 +48,13 @@
 		header('location: ../index.php');
  
         mysqli_close($GLOBALS['connection']);  
+    }
+
+    function logout()
+    {
+        session_destroy();
+        header('location: ../pages/login.php');
+
     }
 
 ?>

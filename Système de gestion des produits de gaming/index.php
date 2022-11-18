@@ -30,7 +30,7 @@
 		</div>	
 		<div class="d-flex align-items-center h5 me-5">
 			<!-- <span class="text-white "> <i class="bi bi-box-arrow-right"></i> logout</span> -->
-			<a href="pages/login.php">  <i class="bi bi-box-arrow-right ">logout</i> </a>
+			<a href="config/scripts.php?logout=1" name="logout">  <i class="bi bi-box-arrow-right ">logout</i> </a>
 		</div>	
 	</div>
 	<!-- FINISHED #navbar -->
