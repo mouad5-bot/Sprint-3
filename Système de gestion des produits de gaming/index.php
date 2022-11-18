@@ -20,37 +20,82 @@
 		<!-- ================== END core-css ================== -->
 	</head>
 <body>
-	<?php
-		include('includes/navbar.php');
-	?>
-
-   
-	<div class="main d-flex">
-		<div>
-			<img src="Assets/image/login.png" alt="login">
+	<!-- BEGIN #navbar -->
+	<div class="navbar navbar-dark bg-dark justify-content-between ">
+		<div class="logo"> 
+			<a href="index.php"><span class="ms-4"> <img src="./Assets/image/logo.png" alt="logo"> </span></a>
 		</div>
-		<div class="card">
-			<div class="card-body">
-				<h1 class="card-title text-info text-center mb-3">Sign in</h1>
-				<form action="../scipte.php" method="POST">
-					<div class="">
-						<div class="mb-3">
-							<label for="email" class="form-label">Adress email</label>
-							<input type="email" class="form-control" id="email"  name="email" placeholder="veuillez entrez votre email">
-						</div>
-						<div class="mb-3">
-							<label for="password"  class="form-label">password</label>
-							<input type="password" class="form-control" id="password" name="password" placeholder="veuiller entrez votre mot de pass ">
-						</div>
-						<div class="d-grid gap-2">
-							<button class="btn btn-info text-white" type="submit" name="login">log in</button>
-							<span>Don't have an account ? <a href="/pages/Signup.php"> Signup now </a></span>
-						</div>
-					</div>	
-				</form>
-			</div>	
-		</div>
+		<div class="d-flex align-items-center h4">
+			<span class="text-white "> <i class="bi bi-person-circle "></i> Admin</span>
+		</div>	
+		<div class="d-flex align-items-center h5 me-5">
+			<!-- <span class="text-white "> <i class="bi bi-box-arrow-right"></i> logout</span> -->
+			<a href="pages/login.php">  <i class="bi bi-box-arrow-right ">logout</i> </a>
+		</div>	
 	</div>
+	<!-- FINISHED #navbar -->
+
+    <main class="container">
+		<div class="h2 mb-5">
+			<u>List of products :</u> 
+		</div>
+        
+        <div class="align-items-center">
+          <a href=""  class="btn btn-success btn-rounded px-4 rounded-pill">Add Product</a>
+        </div>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Product </th>
+              <th scope="col">quantity</th>
+              <th scope="col">status</th>
+              <th scope="col">Description</th>
+              <th scope="col">price</th>
+              <th scope="col"></th>
+            </tr>
+          	</thead>
+          	<tbody>
+				<tr>
+					<th scope="row">1</th>
+					<td>Mark</td>
+					<td>Otto</td>
+					<td>@mdo</td>
+					<td>Mark</td>
+					<td></td>
+					<td>
+						<button type="button" class="btn btn-info">Edit</button>
+						<button type="button" class="btn btn-danger">Delete</button>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">2</th>
+					<td>Jacob</td>
+					<td>Thornton</td>
+					<td>@fat</td>
+					<td>Mark</td>
+					<td>Mark</td>
+					<td>
+						<button type="button" class="btn btn-info">Edit</button>
+						<button type="button" class="btn btn-danger">Delete</button>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">3</th>
+					<td colspan="2">Larry the Bird</td>
+					<td>@twitter</td>
+					<td>Mark</td>
+					<td>Mark</td>
+					<td>
+						<button type="button" class="btn btn-info">Edit</button>
+						<button type="button" class="btn btn-danger">Delete</button>
+					</td>
+				</tr>
+          	</tbody>
+        </table>
+    </main>
+  
 
 	<?php
 		include('includes/footer.php');
