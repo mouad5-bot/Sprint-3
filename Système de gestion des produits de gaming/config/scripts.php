@@ -2,15 +2,16 @@
     //INCLUDE DATABASE FILE
     include('connection.php');
     session_start();
-    
+
     if(!isset($_SESSION['email'])) header("location: pages/login.php");
 
     //ROUTING
-    if(isset($_POST['login']))   login();
-    if(isset($_POST['singup']))  signup();
-    if(isset($_POST['update']))  update();
-    if(isset($_POST['delete']))  delete();
-    if(isset($_GET['logout']))  logout();
+    if(isset($_POST['login']))        login();
+    if(isset($_POST['singup']))       signup();
+    if(isset($_GET['logout']))        logout();
+    if(isset($_POST['update']))       update();
+    if(isset($_POST['delete']))       delete();
+    if(isset($_POST['save_product'])) save_product();
 
     function login(){
         //CODE HERE
@@ -55,6 +56,27 @@
         session_destroy();
         header('location: ../pages/login.php');
 
+    }
+
+    function save_product() 
+    {
+        //CODE HERE     
+        $name        = $_POST['name'];
+        $quantity    = $_POST['quantity'];
+        $price       = $_POST['price'];
+        $category    = (int)$_POST['category'];
+        $image       = $_POST['image'];
+        $description = $_POST['description'];
+        
+        //SQL INSERT
+        $req = "INSERT INTO product ( name, quantity, price, category , image, description)
+        VALUES(  '$name', '$quantity', '$price', '$category', '$image', '$description')";
+        $data = mysqli_query($GLOBALS['connection'] ,$req);
+
+        $_SESSION['message'] = "Product has been added successfully !";
+		header('location: ../index.php');
+ 
+        mysqli_close($GLOBALS['connection']);  
     }
 
 ?>
