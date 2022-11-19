@@ -4,7 +4,7 @@
 		include('../includes/header.php');
 	?>
 
-<body>
+<body class="body">
 
 	<?php
 		include('../includes/navbar.php');
