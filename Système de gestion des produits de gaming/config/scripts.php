@@ -58,6 +58,26 @@
 
     }
 
+    getProducts();
+    function getProducts()
+    {
+        //CODE HERE
+        //SQL SELECT   
+        $requet = "SELECT p.id, p.name as name_product, p.quantity, p.price, c.name  as name_category, p.image, p.description
+        FROM product p
+        INNER JOIN category c on  c.id = p.category"; 
+
+        $resultat = mysqli_query($GLOBALS['connection'],$requet);
+        $GLOBALS['products'] = array();  //declaration a global array
+
+        while($product = mysqli_fetch_assoc($resultat)){
+            $GLOBALS['products'][] = $product;
+        }
+       
+
+        echo "Fetch all product";       
+    }
+
     function save_product() 
     {
         //CODE HERE     
