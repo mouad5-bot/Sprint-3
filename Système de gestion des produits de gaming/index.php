@@ -82,8 +82,8 @@
 						<td title="<?=$row['description']?>"><?php echo substr($row['description'],0,30); ?> ...</td>
 						<td> <a href=""> cliquer ici </a></td>
 						<td>
-							<button type="button" class="btn btn-outline-info">Edit</button>
-							<button type="button" class="btn btn-outline-danger">Delete</button>
+							<a href="pages/deletAndUpdat.php?id1=<?=$row['id']?>"><button type="button" class="btn btn-outline-info">Edit</button></a>	
+							<a href="pages/deletAndUpdat.php?id2=<?=$row['id']?>"><button type="button" class="btn btn-outline-danger">Delete</button></a>
 						</td>
 					</tr>
 

@@ -124,5 +124,12 @@
 
 ?>
 
+<!-- ========================= START #scripte of update ============================= -->
+<script>
 
+    document.getElementById("id").value =" <?=$ligne['']?>";
+    
+</script>
+
+<!-- ========================= FINISHED #scripte of update ============================= -->
 
