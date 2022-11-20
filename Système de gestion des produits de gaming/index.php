@@ -67,21 +67,27 @@
             </tr>
           	</thead>
           	<tbody>
+			  <?php
+					//DATA FROM getproducts() FUNCTION
+					$products=getProducts();
+					foreach($products as $row)
+					{
+				?>
+					<tr>
+						<th scope="row"> <?=$row['id']?></th>
+						<td><?=$row['name_product']?></td>
+						<td><?=$row['quantity']?></td>
+						<td><?=$row['price']?></td>
+						<td><?=$row['name_category']?></td>
+						<td title="<?=$row['description']?>"><?php echo substr($row['description'],0,30); ?> ...</td>
+						<td> <a href=""> cliquer ici </a></td>
+						<td>
+							<button type="button" class="btn btn-outline-info">Edit</button>
+							<button type="button" class="btn btn-outline-danger">Delete</button>
+						</td>
+					</tr>
 
-				<tr>
-					<th scope="row">1</th>
-					<td>clavier gamer</td>
-					<td>Accessoires</td>
-					<td>122</td>
-					<td>150</td>
-					<td>Lorem ipsum dolor sit amet </td>
-					<td> <a href=""> cliquer ici </a> </td>
-					<td>
-						<button type="button" class="btn btn-info">Edit</button>
-						<button type="button" class="btn btn-danger">Delete</button>
-					</td>
-				</tr>
-				
+				<?php } ?>
 			
           	</tbody>
         </table>
