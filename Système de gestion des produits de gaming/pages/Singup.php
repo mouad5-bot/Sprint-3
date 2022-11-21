@@ -7,17 +7,17 @@
 		include('../includes/header.php');
 	?>
 
-<body>
+<body class="body"></div>
 
 	<?php 
 		include('../includes/navbar.php'); 
 	?>
 
-<div class="main d-flex">
+		<div class="main d-flex">
 			<div>
 				<img src="../Assets/image/Singup.png" alt="singup">
 			</div>
-			<div class="card">
+			<div class="card card-signup">
 				<div class="card-body">
 					<h1 class="card-title text-info text-center mb-3">Sign up</h1>
 					<form action="../config/scripts.php" method="POST">

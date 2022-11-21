@@ -14,7 +14,7 @@
 			<div>
 				<img src="../Assets/image/login.png" alt="login">
 			</div>
-			<div class="card">
+			<div class="card card-login">
 				<div class="card-body">
 					<h1 class="card-title text-info text-center mb-3">Log in</h1>
 				<form action="../config/scripts.php" method="POST">

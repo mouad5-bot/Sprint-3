@@ -16,14 +16,22 @@
 
 .logo img{
     height: 4rem;
-    width: 10rem;  
+    width: 10rem;
+    margin-bottom: 5px  ;
 }
 
-.card {
-    width: 25rem;
-    height: 25rem;
-    margin-top: 3rem;
+.main .card-login {
+    width: 30vw;
+    height: 70vh;
+    margin-top: 4rem;   
 }
+
+.main .card-signup {
+    width: 30vw;
+    height: 80vh;
+    margin-top: 4rem;   
+}
+
 .footer{
     background-color: black;
     color: white;
