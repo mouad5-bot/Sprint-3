@@ -2,16 +2,40 @@
    //INCLUDE DATABASE FILE
    include('../config/connection.php');
 
+   //get id 
    $id = $_GET['id1'];
 
+   //remplir the form
    $req = "SELECT p.id as id, p.name as name_product, p.quantity, p.price, c.name  as name_category, p.image, p.description
    FROM product p
    INNER JOIN category c on  c.id = p.category WHERE $id=p.id";  
    $data = mysqli_query($GLOBALS['connection'] ,$req);
    $row = mysqli_fetch_assoc($data);
 
-   if(issse)
-    
+   //save changes (update)
+   if(isset($_POST['update'])) 
+
+	$name        = $_POST['name'];
+	$quantity    = $_POST['quantity'];
+	$price       = $_POST['price'];
+	$category    = $_POST['category'];
+	$image       = $_POST['image'];
+	$description = $_POST['description'];
+
+	//SQL UPDATE
+	$sql = "UPDATE `product` SET `quantity`='$quantity ',
+			`price`='$price ',`category`='$category',`description`='$description',
+			`name`=' $name',`image`='$image' WHERE id = $id";
+
+	$data = mysqli_query($GLOBALS['connection'] ,$sql);
+
+	if (!$data) {
+		echo "Error updating record: " . mysqli_error($GLOBALS['connection']);
+	}
+
+	$_SESSION['message'] = "Task has been updated successfully !";
+	header('location: ../index.php');
+
    mysqli_close($GLOBALS['connection']); 
 ?>
 

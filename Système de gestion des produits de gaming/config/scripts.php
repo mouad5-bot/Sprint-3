@@ -96,27 +96,27 @@
 
     function update(){
 		//CODE HERE	
-		$id = $_GET['id'];
-        $name        = $_POST['name'];
-        $quantity    = $_POST['quantity'];
-        $price       = $_POST['price'];
-        $category    = $_POST['category'];
-        $image       = $_POST['image'];
-        $description = $_POST['description'];
+		// $id = $_GET['id'];
+        // $name        = $_POST['name'];
+        // $quantity    = $_POST['quantity'];
+        // $price       = $_POST['price'];
+        // $category    = $_POST['category'];
+        // $image       = $_POST['image'];
+        // $description = $_POST['description'];
         
-        //SQL UPDATE
-        $sql = "UPDATE `product` SET `quantity`='$quantity ',
-                `price`='$price ',`category`='$category',`description`='$description',
-                `name`=' $name',`image`='$image' WHERE id = $id";
+        // //SQL UPDATE
+        // $sql = "UPDATE `product` SET `quantity`='$quantity ',
+        //         `price`='$price ',`category`='$category',`description`='$description',
+        //         `name`=' $name',`image`='$image' WHERE id = $id";
 
-        $data = mysqli_query($GLOBALS['connection'] ,$sql);
+        // $data = mysqli_query($GLOBALS['connection'] ,$sql);
 
-        if (!$data) {
-            echo "Error updating record: " . mysqli_error($GLOBALS['connection']);
-        }
+        // if (!$data) {
+        //     echo "Error updating record: " . mysqli_error($GLOBALS['connection']);
+        // }
 
-        $_SESSION['message'] = "Task has been updated successfully !";
-        header('location: index.php');
+        // $_SESSION['message'] = "Task has been updated successfully !";
+        // header('location: index.php');
 		
     }
 
