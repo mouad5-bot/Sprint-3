@@ -29,8 +29,9 @@
 							</div>
 							<div class="mb-3">
 								<label for="email" class="form-label">Adress email</label>
-								<input type="email" class="form-control" id="email"  name="email" 
-								       placeholder="veuillez entrez votre email" required>
+								<input type="text" class="form-control"id="email"name="email"  
+									   data-parsley-type="email"  data-parsley-trigger="focusout"
+								       placeholder="veuillez entrez votre email" required />
 							</div>
 							<div class="mb-3">
 								<label for="password"  class="form-label">password</label>
@@ -52,6 +53,11 @@
 	<!-- ================== BEGIN core-js ================== -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('#email').parsley();
+		});
+	</script>
 	<!-- ================== END core-js ================== -->		
 </body>
 </html>		

@@ -44,6 +44,19 @@
 	</nav>
 	<!-- FINISHED #navbar -->
 
+	<!-- session code	-->
+	<?php if (isset($_SESSION['message'])): ?>
+		<div class="alert alert-green alert-dismissible fade show">
+		<strong>Success!</strong>
+			<?php 
+				echo $_SESSION['message']; 
+				unset($_SESSION['message']);
+			?>
+			<button type="button" class="btn-close" data-bs-dismiss="alert"></span>
+		</div>
+	<?php endif ?>
+	<!-- finished session code -->
+	
     <main class="container">
 		<div class="h2 mb-3">
 			<u>List of products :</u> 
@@ -143,7 +156,7 @@
 					</div>
 					<div class="modal-footer">
 						<a href="#" class="btn btn-white" data-bs-dismiss="modal">Cancel</a>
-						<button type="submit" name="save_product"   class="btn btn-primary task-action-btn" id="task-save-btn">Save</button>
+						<button type="submit" name="save_product"   class="btn btn-primary product-action-btn" id="product-save-btn">Save</button>
 					</div>
 				</form>
 			</div>

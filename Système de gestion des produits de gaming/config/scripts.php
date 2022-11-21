@@ -31,24 +31,35 @@
 
     function signup() 
     {
-        //CODE HERE 
-        if (!empty($_POST['full_name']) && !empty($_POST['email'] && !empty($_POST['password']))) 
-        {
-            $full_name = htmlspecialchars(trim($_POST['full_name']));
-            $email     = htmlspecialchars(trim($_POST['email']));
-            $password  = md5($_POST['password']);   
-        }
+        //CODE VALIDATION HERE 
+            if(empty($_POST['full_name'])){
+                echo "the name is required";
+            }else{
+                $full_name = htmlspecialchars(trim($_POST['full_name']));
+            }
+
+            if(empty($_POST['email'])){
+                echo "the email is required";
+            }else{
+                $email = htmlspecialchars(trim($_POST['email']));
+            }   
+            
+            if(empty($_POST['password'])){
+                echo "the password is required";
+            }else{
+                $password = md5($_POST['password']); 
+            }
 
         //SQL INSERT
-        $requet = "INSERT INTO user ( full_name, email, password)
-        VALUES( '$full_name', '$email', '$password')";
-        
-        $data = mysqli_query($GLOBALS['connection'],$requet);
+            $requet = "INSERT INTO user ( full_name, email, password)
+            VALUES( '$full_name', '$email', '$password')";
+            
+            $data = mysqli_query($GLOBALS['connection'],$requet);
 
-        $_SESSION['message'] = "your sing up has been successfully !";
-		header('location: ../index.php');
+            $_SESSION['message'] = "your sing up has been successfully !";
+            header('location: ../index.php');
  
-        mysqli_close($GLOBALS['connection']);  
+            mysqli_close($GLOBALS['connection']);  
     }
 
     function logout()
@@ -95,28 +106,29 @@
     }
 
     function update(){
-		//CODE HERE	
-		// $id = $_GET['id'];
-        // $name        = $_POST['name'];
-        // $quantity    = $_POST['quantity'];
-        // $price       = $_POST['price'];
-        // $category    = $_POST['category'];
-        // $image       = $_POST['image'];
-        // $description = $_POST['description'];
+                
+                $id = $_POST['id'];
+                //CODE HERE     
+                $name        = $_POST['name'];
+                $quantity    = $_POST['quantity'];  
+                $price       = $_POST['price'];
+                $category    = $_POST['category'];
+                $description = $_POST['description'];
+                //SQL UPDATE
+                $sql = "UPDATE product SET quantity='$quantity ',
+                        price='$price ', category='$category', description='$description',
+                        name=' $name' WHERE id = $id";
         
-        // //SQL UPDATE
-        // $sql = "UPDATE `product` SET `quantity`='$quantity ',
-        //         `price`='$price ',`category`='$category',`description`='$description',
-        //         `name`=' $name',`image`='$image' WHERE id = $id";
-
-        // $data = mysqli_query($GLOBALS['connection'] ,$sql);
-
-        // if (!$data) {
-        //     echo "Error updating record: " . mysqli_error($GLOBALS['connection']);
-        // }
-
-        // $_SESSION['message'] = "Task has been updated successfully !";
-        // header('location: index.php');
+                $data = mysqli_query($GLOBALS['connection'] ,$sql);
+        
+                if (!$data) {
+                    echo "Error updating record: " . mysqli_error($GLOBALS['connection']);
+                }
+        
+                $_SESSION['message'] = "product has been updated successfully !";
+                header('location: ../index.php');
+        
+                mysqli_close($GLOBALS['connection']); 
 		
     }
 

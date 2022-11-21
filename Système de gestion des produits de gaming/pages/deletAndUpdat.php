@@ -3,40 +3,13 @@
    include('../config/connection.php');
 
    //get id 
-   $id = $_GET['id1'];
-
+   $id= $_GET['id1'];
    //remplir the form
    $req = "SELECT p.id as id, p.name as name_product, p.quantity, p.price, c.name  as name_category, p.image, p.description
    FROM product p
    INNER JOIN category c on  c.id = p.category WHERE $id=p.id";  
    $data = mysqli_query($GLOBALS['connection'] ,$req);
    $row = mysqli_fetch_assoc($data);
-
-   //save changes (update)
-   if(isset($_POST['update'])) 
-
-	$name        = $_POST['name'];
-	$quantity    = $_POST['quantity'];
-	$price       = $_POST['price'];
-	$category    = $_POST['category'];
-	$image       = $_POST['image'];
-	$description = $_POST['description'];
-
-	//SQL UPDATE
-	$sql = "UPDATE `product` SET `quantity`='$quantity ',
-			`price`='$price ',`category`='$category',`description`='$description',
-			`name`=' $name',`image`='$image' WHERE id = $id";
-
-	$data = mysqli_query($GLOBALS['connection'] ,$sql);
-
-	if (!$data) {
-		echo "Error updating record: " . mysqli_error($GLOBALS['connection']);
-	}
-
-	$_SESSION['message'] = "Task has been updated successfully !";
-	header('location: ../index.php');
-
-   mysqli_close($GLOBALS['connection']); 
 ?>
 
 <!DOCTYPE html>
@@ -57,12 +30,15 @@
     <!-- Produts MODAL -->
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form action="config/scripts.php" method="POST" id="form-product">
+				<form action="../config/scripts.php" method="POST" id="form-product">
 					<div class="modal-header">
 						<h5 class="modal-title">Add Product</h5>
 						<a href="#" class="btn-close" data-bs-dismiss="modal"></a>
 					</div>
 					<div class="modal-body">
+						<div class="mb-3">
+							<input  type="hidden" class="form-control" value="<?=$row['id']?>" name="id" id="id"/>
+						</div>
 						<div class="mb-3">
 							<label class="form-label">Name of product</label>
 							<input  type="text" class="form-control" value="<?=$row['name_product']?>" name="name" id="name"/>
@@ -97,7 +73,8 @@
 					</div>
 					<div class="modal-footer">
 						<a href="#" class="btn btn-white" data-bs-dismiss="modal">Cancel</a>
-						<button type="submit" name="save_product"   class="btn btn-primary task-action-btn" id="task-save-btn">Save</button>
+						<button type="submit" name="update"   class="btn btn-warning product-action-btn" id="product-edit-btn">Edit</button>
+						<a href="../index.php?id2=<?=$row['id']?>"><button type="submit" name="delete"   class="btn btn-danger product-action-btn" id="product-delet-btn">Delete</button></a>
 					</div>
 				</form>
 			</div>
@@ -108,3 +85,4 @@
 <!-- ================== END core-js ================== -->  
 </body>
 </html>
+
