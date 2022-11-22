@@ -12,7 +12,7 @@
     if(isset($_POST['singup']))       signup();
     if(isset($_GET['logout']))        logout();
     if(isset($_POST['update']))       update();
-    if(isset($_GET['delete']))        delete();
+    if(isset($_GET['delete']))        delete1();
     if(isset($_POST['save_product'])) save_product();
 
 
@@ -190,9 +190,9 @@
 		
     }
 
-    function delete() 
+    function delete1() 
     { 
-        $id= $_GET['id2'];
+        $id= $_GET['delete'];
         
         //SQL DELETE
         $sql = "DELETE FROM product WHERE id=$id";
@@ -201,6 +201,7 @@
         $_SESSION['success'] = "product has been deleted successfully !";
         header('location: ../index.php');
     }
+
 ?>
 
 <!-- <script>

@@ -2,8 +2,7 @@
 	<meta charset="utf-8" />
 	<title>Gaming | products</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
-	<meta content="" name="description" />
-	<meta content="" name="author" />
+	<meta content="in this website you can find all the gaming products that you need" name="description" />
 	
 	<!-- ================== BEGIN core-css ================== -->
 	<link rel="stylesheet" href="../Assets/css/style.css">

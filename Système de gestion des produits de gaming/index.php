@@ -9,8 +9,7 @@
 		<meta charset="utf-8" />
 		<title>Gaming | products</title>
 		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
-		<meta content="" name="description" />
-		<meta content="" name="author" />
+		<meta content="in this website you can find all the gaming products that you need" name="description" />
 		
 		<!-- ================== BEGIN core-css ================== -->
 		<link rel="stylesheet" href="Assets/css/style.css">
@@ -78,17 +77,17 @@
         </div>
 
         <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Product </th>
-              <th scope="col">category</th>
-              <th scope="col">quantity</th>
-              <th scope="col">price</th>
-              <th scope="col">Description</th>
-              <th scope="col">image</th>
-              <th scope="col"></th>
-            </tr>
+          	<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Product </th>
+					<th scope="col">category</th>
+					<th scope="col">quantity</th>
+					<th scope="col">price</th>
+					<th scope="col">Description</th>
+					<th scope="col">image</th>
+					<th scope="col"></th>
+				</tr>
           	</thead>
           	<tbody>
 				
@@ -108,7 +107,7 @@
 						<td> <a href=""> cliquer ici </a></td>
 						<td>
 							<a href="pages/deletAndUpdat.php?id1=<?=$row['id']?>"><button type="button" class="btn btn-outline-info">Edit</button></a>	
-							<a href="config/scripts.php?id2=<?=$row['id']?>"><button type="button" name="delete" class="btn btn-outline-danger">Delete</button>
+							<a href="config/scripts.php?delete=<?=$row['id']?>"><button type="button" name="delete" class="btn btn-outline-danger">Delete</button>
 						</td>
 					</tr>
 

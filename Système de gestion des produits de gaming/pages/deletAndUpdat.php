@@ -4,6 +4,7 @@
 
    //get id 
    $id= $_GET['id1'];
+
    //remplir the form
    $req = "SELECT p.id as id, p.name as name_product, p.quantity, p.price, c.id as idcat , c.name  as name_category, p.image, p.description
    FROM product p
@@ -64,8 +65,7 @@
 					<div class="card-footer bg-white">
 						<div class="float-end">
 							<a href="../index.php" class="btn btn-white">Cancel</a>
-							<button type="submit" name="update" class="btn btn-warning product-action-btn" id="product-edit-btn"> Edit</button>
-							<button type="submit" name="delete" class="btn btn-danger product-action-btn"  id="product-delet-btn">Delete</button>
+							<button type="submit" name="update" class="btn btn-warning product-action-btn" id="product-edit-btn"> Edit</button>	
 						</div>	
 					</div>
 				</form>
