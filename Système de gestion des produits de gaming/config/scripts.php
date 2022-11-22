@@ -20,7 +20,7 @@
     {
         //CODE HERE
         $email    = htmlspecialchars(trim($_POST['email'])) ;   //htmlspecialchars c'est pour eviter d'exicuter les tags de html  
-        $password = md5($_POST['password']);             //md5 pour hide le mote pass 
+        $password = md5($_POST['password']);        //md5 pour hide le mote pass 
 
         //SQL INSERT
         $requet = "SELECT * FROM user WHERE email = '$email' AND password = '$password'";
@@ -103,7 +103,7 @@
         VALUES(  '$name', '$quantity', '$price', '$category', '$image', '$description')";
         $data = mysqli_query($GLOBALS['connection'] ,$req);
 
-        $_SESSION['message'] = "Product has been added successfully !";
+        $_SESSION['success'] = "Product has been added successfully !";
 		header('location: ../index.php');
  
         mysqli_close($GLOBALS['connection']);  

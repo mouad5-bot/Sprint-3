@@ -49,22 +49,26 @@
 		<strong>Success!</strong>
 			<?php 
 				echo $_SESSION['success']; 
-				unset($_SESSION['success']);
 			?>
 			<button type="button" class="btn-close" data-bs-dismiss="alert"></span>
 		</div>
-	<?php endif ?>
+	<?php
+		unset($_SESSION['success']);
+		endif 
+	?>
 
 	<?php if (isset($_SESSION['error'])): ?>
 		<div class="alert alert-danger alert-dismissible fade show">
-		<strong>Error!</strong>
+			<strong>Error!</strong>
 			<?php 
 				echo $_SESSION['error']; 
-				unset($_SESSION['error']);
 			?>
 			<button type="button" class="btn-close" data-bs-dismiss="alert"></span>
 		</div>
-	<?php endif ?>
+	<?php 
+		unset($_SESSION['error']);
+		endif 
+	?>
 	<!-- finished session code -->
 	
     <main class="container">
@@ -104,7 +108,7 @@
 						<td><?=$row['price']?></td>
 						<td><?=$row['name_category']?></td>
 						<td title="<?=$row['description']?>"><?php echo substr($row['description'],0,30); ?> ...</td>
-						<td> <a href=""> cliquer ici </a></td>
+						<td> </td>
 						<td>
 							<a href="pages/deletAndUpdat.php?id1=<?=$row['id']?>"><button type="button" class="btn btn-outline-info">Edit</button></a>	
 							<a href="config/scripts.php?delete=<?=$row['id']?>"><button type="button" name="delete" class="btn btn-outline-danger">Delete</button>
@@ -151,9 +155,20 @@
 						<div class="mb-3">
 							<label class="form-label">Category</label> 
 							<select class="form-select" name="category" id="category">
-								<option value="">Please select</option>
-								<option value="1">Ordinateurs </option>
+							<?php 
+								$table = 'categorie';
+								$data = getdata($table);
+								foreach ($data as $categorie) {
+									echo "<option name=".$categorie['id']."> $categorie[Label] </option>";
+								}
+							?>
+								<!-- <option value="">Please select</option> -->
+								<!-- <option value="1">Ordinateurs </option>
 								<option value="2">Accessoires </option>
+								<option value="3">Games </option> -->
+
+
+
 							</select>
 						</div>
 						<div class="input-group">
