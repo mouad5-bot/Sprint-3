@@ -5,7 +5,7 @@
    //get id 
    $id= $_GET['id1'];
    //remplir the form
-   $req = "SELECT p.id as id, p.name as name_product, p.quantity, p.price, c.name  as name_category, p.image, p.description
+   $req = "SELECT p.id as id, p.name as name_product, p.quantity, p.price, c.id as idcat , c.name  as name_category, p.image, p.description
    FROM product p
    INNER JOIN category c on  c.id = p.category WHERE $id=p.id";  
    $data = mysqli_query($GLOBALS['connection'] ,$req);
@@ -14,28 +14,18 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>update & delete</title>
-    <!-- ================== BEGIN core-css ================== -->
-    <link rel="stylesheet" href="Assets/css/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-    <!-- ================== END core-css ================== -->
-</head>
-<body>
+	<?php
+		include('../includes/header.php');
+	?>
+<body class="body">
     <!-- Produts MODAL -->
-		<div class="modal-dialog">
-			<div class="modal-content">
+	<div class="card w-50 m-auto mt-2">
+		<div class="card-body">
 				<form action="../config/scripts.php" method="POST" id="form-product">
-					<div class="modal-header">
-						<h5 class="modal-title">Add Product</h5>
-						<a href="#" class="btn-close" data-bs-dismiss="modal"></a>
+					<div class="card-header bg-white">
+						<h5 class="card-title">Add Product</h5>
 					</div>
-					<div class="modal-body">
+					<div class="card-body">
 						<div class="mb-3">
 							<input  type="hidden" class="form-control" value="<?=$row['id']?>" name="id" id="id"/>
 						</div>
@@ -44,7 +34,7 @@
 							<input  type="text" class="form-control" value="<?=$row['name_product']?>" name="name" id="name"/>
 						</div>
 						<div class="mb-3">
-							<label class="text" for="" >Quantity</label>
+							<label class="text">Quantity</label>
 							<input type="number" value="<?=$row['quantity'] ?>" class="form-control" name="quantity" id="quantity" >
 						</div>
 						<div class="mb-3">
@@ -56,8 +46,8 @@
 						</div>
 						<div class="mb-3">
 							<label class="form-label">Category</label> 
-							<select class="form-select" value="<?=$row['name_category']?>" name="category" id="category">
-								<option value="">Please select</option>
+							<select class="form-select"  name="category" id="category">
+							<option value="<?=$row['idcat']?>"><?=$row['name_category']?></option>
 								<option value="1">Ordinateurs </option>
 								<option value="2">Accessoires </option>
 							</select>
@@ -71,14 +61,16 @@
 						</div>
 					
 					</div>
-					<div class="modal-footer">
-						<a href="#" class="btn btn-white" data-bs-dismiss="modal">Cancel</a>
-						<button type="submit" name="update"   class="btn btn-warning product-action-btn" id="product-edit-btn">Edit</button>
-						<a href="../index.php?id2=<?=$row['id']?>"><button type="submit" name="delete"   class="btn btn-danger product-action-btn" id="product-delet-btn">Delete</button></a>
+					<div class="card-footer bg-white">
+						<div class="float-end">
+							<a href="../index.php" class="btn btn-white">Cancel</a>
+							<button type="submit" name="update" class="btn btn-warning product-action-btn" id="product-edit-btn"> Edit</button>
+							<button type="submit" name="delete" class="btn btn-danger product-action-btn"  id="product-delet-btn">Delete</button>
+						</div>	
 					</div>
 				</form>
-			</div>
 		</div>
+	</div>	
 <!-- ================== BEGIN core-js ================== -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

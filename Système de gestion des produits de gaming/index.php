@@ -45,12 +45,23 @@
 	<!-- FINISHED #navbar -->
 
 	<!-- session code	-->
-	<?php if (isset($_SESSION['message'])): ?>
+	<?php if (isset($_SESSION['success'])): ?>
 		<div class="alert alert-green alert-dismissible fade show">
 		<strong>Success!</strong>
 			<?php 
-				echo $_SESSION['message']; 
-				unset($_SESSION['message']);
+				echo $_SESSION['success']; 
+				unset($_SESSION['success']);
+			?>
+			<button type="button" class="btn-close" data-bs-dismiss="alert"></span>
+		</div>
+	<?php endif ?>
+
+	<?php if (isset($_SESSION['error'])): ?>
+		<div class="alert alert-danger alert-dismissible fade show">
+		<strong>Error!</strong>
+			<?php 
+				echo $_SESSION['error']; 
+				unset($_SESSION['error']);
 			?>
 			<button type="button" class="btn-close" data-bs-dismiss="alert"></span>
 		</div>
@@ -80,12 +91,13 @@
             </tr>
           	</thead>
           	<tbody>
-			  <?php
-					//DATA FROM getproducts() FUNCTION
-					$products=getProducts();
-					foreach($products as $row)
-					{
-				?>
+				
+			<?php
+				//DATA FROM getproducts() FUNCTION
+				$products=getProducts();
+				foreach($products as $row)
+				{
+			?>
 					<tr>
 						<th scope="row"> <?=$row['id']?></th>
 						<td><?=$row['name_product']?></td>
@@ -96,7 +108,7 @@
 						<td> <a href=""> cliquer ici </a></td>
 						<td>
 							<a href="pages/deletAndUpdat.php?id1=<?=$row['id']?>"><button type="button" class="btn btn-outline-info">Edit</button></a>	
-							<a href="pages/deletAndUpdat.php?id2=<?=$row['id']?>"><button type="button" class="btn btn-outline-danger">Delete</button></a>
+							<a href="config/scripts.php?id2=<?=$row['id']?>"><button type="button" name="delete" class="btn btn-outline-danger">Delete</button>
 						</td>
 					</tr>
 

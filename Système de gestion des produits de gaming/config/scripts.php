@@ -1,7 +1,9 @@
 <?php
     //INCLUDE DATABASE FILE
     include('connection.php');
+
     session_start();
+
     //si user n'est pas connecter il n'a pas l'acces pour connecté
     if(!isset($_SESSION['email'])) header("location: pages/login.php"); 
 
@@ -10,10 +12,12 @@
     if(isset($_POST['singup']))       signup();
     if(isset($_GET['logout']))        logout();
     if(isset($_POST['update']))       update();
-    if(isset($_POST['delete']))       delete();
+    if(isset($_GET['delete']))        delete();
     if(isset($_POST['save_product'])) save_product();
 
-    function login(){
+
+    function login()
+    {
         //CODE HERE
         $email    = htmlspecialchars(trim($_POST['email'])) ;   //htmlspecialchars c'est pour eviter d'exicuter les tags de html  
         $password = md5($_POST['password']);             //md5 pour hide le mote pass 
@@ -105,43 +109,125 @@
         mysqli_close($GLOBALS['connection']);  
     }
 
-    function update(){
-                
-                $id = $_POST['id'];
-                //CODE HERE     
-                $name        = $_POST['name'];
-                $quantity    = $_POST['quantity'];  
-                $price       = $_POST['price'];
-                $category    = $_POST['category'];
-                $description = $_POST['description'];
-                //SQL UPDATE
-                $sql = "UPDATE product SET quantity='$quantity ',
-                        price='$price ', category='$category', description='$description',
-                        name=' $name' WHERE id = $id";
-        
-                $data = mysqli_query($GLOBALS['connection'] ,$sql);
-        
-                if (!$data) {
-                    echo "Error updating record: " . mysqli_error($GLOBALS['connection']);
+    function uploadimage()
+    {
+        if (isset($_FILES['image']))
+        {   
+            global $connection;
+
+            // echo "<pre>";
+            // print_r($_FILES['my_image']);
+            // echo "</pre>";
+
+            $img_name = $_FILES['image']['name'];
+            $img_size = $_FILES['image']['size'];
+            $tmp_name = $_FILES['image']['tmp_name'];
+            $error    = $_FILES['image']['error'];
+
+                if ($error === 0)
+                {
+                    if ($img_size > 170000) 
+                    {
+                        $_SESSION['error'] = "Sorry, your file is too large.";
+                        header('location: ../index.php');
+                    }
+                    else
+                    {
+                        // ex = extension  | lc = lowerCase 
+                        $img_ex = pathinfo($img_name, PATHINFO_EXTENSION); 
+                        $img_ex_lc = strtolower($img_ex);
+
+                        $allowed_exs = array("jpg", "jpeg", "png"); 
+
+                            if (in_array($img_ex_lc, $allowed_exs)) 
+                            {
+                                $new_img_name = uniqid("IMG-", true).'.'.$img_ex_lc;
+                                $img_upload_path = '../Assets/upload_image'.$new_img_name;
+                                move_uploaded_file($tmp_name, $img_upload_path);
+                            }
+                            else {
+                                $_SESSION['error'] = "You can't upload files of this type";
+                                header('location: ../index.php'); 
+                            }
+                    }
                 }
-        
-                $_SESSION['message'] = "product has been updated successfully !";
-                header('location: ../index.php');
-        
-                mysqli_close($GLOBALS['connection']); 
+                else
+                {
+                    $_SESSION['error'] = 'unknown error occurred!';
+                    header('location: ../index.php'); 
+                    
+                }
+        }
+        return $new_img_name;
+    }
+
+    function update()
+    {
+                
+        //CODE HERE     
+        $id          = $_POST['id'];
+        $name        = $_POST['name'];
+        $quantity    = $_POST['quantity'];  
+        $price       = $_POST['price'];
+        $category    = $_POST['category'];
+        $description = $_POST['description'];
+
+        //SQL UPDATE
+        $sql = "UPDATE product SET quantity='$quantity ',
+                price='$price ', category='$category', description='$description',
+                name=' $name' WHERE id = $id";
+
+        $data = mysqli_query($GLOBALS['connection'] ,$sql);
+
+        if (!$data) {
+            echo "Error updating record: " . mysqli_error($GLOBALS['connection']);
+        }
+
+        $_SESSION['success'] = "product has been updated successfully !";
+        header('location: ../index.php');
+
+        mysqli_close($GLOBALS['connection']); 
 		
     }
 
-    
+    function delete() 
+    { 
+        $id= $_GET['id2'];
+        
+        //SQL DELETE
+        $sql = "DELETE FROM product WHERE id=$id";
+        $query = mysqli_query($GLOBALS['connection'] ,$sql);
 
+        $_SESSION['success'] = "product has been deleted successfully !";
+        header('location: ../index.php');
+    }
 ?>
 
-<!-- ========================= START #scripte of update ============================= -->
-<script>
-
-    document.getElementById("id").value =" <?=$ligne['']?>";
-    
-</script>
-
-<!-- ========================= FINISHED #scripte of update ============================= -->
-
+<!-- <script>
+    function delete(id) 
+    {
+        // Get index of task in the array
+        let index;
+        for(let i = 0; i < product.length; i++){
+            if ( tasks[i].id == id ) { index = i}
+        }
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this imaginary file!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+            tasks.splice (index, 1);  //for delete a   u.s
+            reloadTasks()  // afficher tout les u.s
+            swal("Your user story has been deleted!", {
+                icon: "success",
+            });
+            } else {
+            swal("Your user story file is safe!");
+            }
+        });   
+    }
+</script> -->
