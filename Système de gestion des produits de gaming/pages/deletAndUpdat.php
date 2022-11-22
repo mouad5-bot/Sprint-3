@@ -48,7 +48,7 @@
 						<div class="mb-3">
 							<label class="form-label">Category</label> 
 							<select class="form-select"  name="category" id="category">
-							<option value="<?=$row['idcat']?>"><?=$row['name_category']?></option>
+								<option value="<?=$row['idcat']?>"><?=$row['name_category']?></option>
 								<option value="1">Ordinateurs </option>
 								<option value="2">Accessoires </option>
 							</select>

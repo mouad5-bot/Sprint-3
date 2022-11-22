@@ -202,7 +202,14 @@
         header('location: ../index.php');
     }
 
-    
+    function getdata($table){
+        $sql = "SELECT * FROM category";
+        $result = mysqli_query($GLOBALS['connection'] ,$sql);
+        $data = array();
+       while($row = mysqli_fetch_assoc($result))
+            $data[] = $row;
+       return $data;
+    }
 
 ?>
 

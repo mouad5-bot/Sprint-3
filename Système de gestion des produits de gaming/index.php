@@ -157,16 +157,17 @@
 						<div class="mb-3">
 							<label class="form-label">Category</label> 
 							<select class="form-select" name="category" id="category">
+							<option value="">Please select</option>
 							<?php 
-								// $table = 'categorie';
-								// $data = getdata($table);
-								// foreach ($data as $categorie) {
-								// 	echo "<option name=".$categorie['id']."> $categorie[Label] </option>";
-								// }
+								$table = 'categorie';
+								$data = getdata($table);
+								foreach ($data as $categorie) {
+									echo "<option name=".$categorie['id']."> $categorie[name] </option>";
+								}
 							?>
-								<option value="">Please select</option> 
+								<!-- <option value="">Please select</option> 
 								<option value="1">Ordinateurs </option>
-								<option value="2">Accessoires </option>
+								<option value="2">Accessoires </option> -->
 
 
 
