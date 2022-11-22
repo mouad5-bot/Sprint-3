@@ -1,6 +1,6 @@
 # Sprint-3
 
-Lien of designe : 
+Lien de Figma maquette : 
         https://www.figma.com/file/TKVxa0oTJLzPCmXztKGMvW/Syst%C3%A8me-de-gestion-des-produits-de-gaming?node-id=0%3A1
         
         
