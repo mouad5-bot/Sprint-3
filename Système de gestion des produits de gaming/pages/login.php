@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 	<?php
@@ -7,18 +9,32 @@
 <body class="body">
 
 	<?php
+    	session_start();
 		$namePage="login";
 		include('../includes/navbar.php');
 	?>
+	
 
 	<div class="main d-flex">
-			<div>
+			<div class="col-7 d-none d-sm-block">
 				<img src="../Assets/image/login.png" alt="login">
 			</div>
-			<div class="card card-login">
+			<div class="card col-12 col-sm-4 mt-5">
 				<div class="card-body">
 					<h1 class="card-title text-info text-center mb-3">Log in</h1>
-				<form action="../config/scripts.php" method="POST">
+
+					<?php if (isset($_SESSION['error'])): ?>
+						<div class="alert alert-danger m-5" role="alert">
+							<strong>Error!</strong>
+								<?php 
+									echo $_SESSION['error']; 
+								?>
+						</div>
+					<?php
+					unset($_SESSION['error']);
+					endif 
+					?>
+				 <form action="../config/scripts.php" method="POST">
 						<div class="">
 							<div class="mb-3">
 								<label for="email" class="form-label">Adress email</label>

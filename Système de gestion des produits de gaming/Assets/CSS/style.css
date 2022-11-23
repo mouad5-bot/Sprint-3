@@ -20,18 +20,6 @@
     margin-bottom: 5px  ;
 }
 
-.main .card-login {
-    width: 30vw;
-    height: 70vh;
-    margin-top: 4rem;   
-}
-
-.main .card-signup {
-    width: 30vw;
-    height: 80vh;
-    margin-top: 4rem;   
-}
-
 .footer{
     background-color: black;
     color: white;
