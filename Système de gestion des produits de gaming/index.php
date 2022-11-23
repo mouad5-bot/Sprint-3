@@ -74,24 +74,41 @@
 	<!-- finished session code -->
 	
     <main class="container">
-		<div class="h2 mb-3">
-			<u>List of products :</u> 
+
+	<div class="d-flex text-aligne-between">	
+		<div class="card border-success mb-3" style="max-width: 16rem;">
+			<div class="card-header bg-transparent border-success">category</div>
+				<div class="card-body text-success">
+					<h5 class="card-title">Success card title</h5>
+				</div>
+			</div>
+			<div class="card border-success mb-3" style="max-width: 16rem;">
+				<div class="card-header bg-transparent border-success">category</div>
+					<div class="card-body text-success">
+						<h5 class="card-title">Success card title</h5>
+					</div>
+			</div>
+		</div>	
+		<hr>
+		<div class="container">
+			<div class='h3'>
+				<u>List of products :</u> 
+			</div>
+			<div class="float-end mb-5">
+				<a href="#modal-product" data-bs-toggle="modal"  class="btn btn-success btn-rounded px-4 rounded-pill">Add Product</a>
+			</div>
 		</div>
-        
-        <div class="float-end mb-5">
-          <a href="#modal-product" data-bs-toggle="modal"  class="btn btn-success btn-rounded px-4 rounded-pill">Add Product</a>
-        </div>
 
         <table class="table">
           	<thead>
 				<tr>
 					<th scope="col">#</th>
+					<th scope="col">image</th>
 					<th scope="col">Product </th>
 					<th scope="col">category</th>
 					<th scope="col">quantity</th>
 					<th scope="col">price</th>
 					<th scope="col">Description</th>
-					<th scope="col">image</th>
 					<th scope="col"></th>
 				</tr>
           	</thead>
@@ -104,21 +121,19 @@
 				{
 			?>
 					<tr>
-						<th scope="row"> <?=$row['id']?></th>
-						<td><?=$row['name_product']?></td>
-						<td><?=$row['quantity']?></td>
-						<td><?=$row['price']?></td>
-						<td><?=$row['name_category']?></td>
+						<th scope="row"> <?=$row['id'] ?></th>
+						<td> <?=$row['image']       ?></td>
+						<td> <?=$row['name_product']  ?></td>
+						<td> <?=$row['quantity']  ?></td>
+						<td> <?=$row['price']   ?></td>
+						<td> <?=$row['name_category']?></td>
 						<td title="<?=$row['description']?>"><?php echo substr($row['description'],0,30); ?> ...</td>
-						<td> </td>
 						<td>
 							<a href="pages/deletAndUpdat.php?id1=<?=$row['id']?>"><button type="button" class="btn btn-outline-info">Edit</button></a>	
 							<a href="config/scripts.php?delete=<?=$row['id']?>"><button type="button" name="delete" class="btn btn-outline-danger">Delete</button>
 						</td>
 					</tr>
-
-				<?php } ?>
-			
+				<?php } ?>	
           	</tbody>
         </table>
     </main>

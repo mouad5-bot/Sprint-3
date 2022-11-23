@@ -52,6 +52,7 @@
 								<option value="1">Ordinateurs </option>
 								<option value="2">Accessoires </option>
 							</select>
+
 						</div>
 						<div class="input-group">
 							<input type="file" class="form-control"  id="inputGroupFile04" name="image" aria-describedby="inputGroupFileAddon04" aria-label="Upload">

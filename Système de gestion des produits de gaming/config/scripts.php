@@ -95,9 +95,9 @@
         $quantity    = $_POST['quantity'];
         $price       = $_POST['price'];
         $category    = $_POST['category'];
-        $image       = $_POST['image'];
+        $image       = uploadimage();
         $description = $_POST['description'];
-        
+        print_r($_POST);die;
         //SQL INSERT
         $req = "INSERT INTO product ( name, quantity, price, category , image, description)
         VALUES(  '$name', '$quantity', '$price', '$category', '$image', '$description')";
@@ -123,7 +123,7 @@
             $img_size = $_FILES['image']['size'];
             $tmp_name = $_FILES['image']['tmp_name'];
             $error    = $_FILES['image']['error'];
-
+            $new_img_name = "";
                 if ($error === 0)
                 {
                     if ($img_size > 170000) 
@@ -157,8 +157,8 @@
                     header('location: ../index.php'); 
                     
                 }
+                return $new_img_name;
         }
-        return $new_img_name;
     }
 
     function update()
@@ -199,7 +199,7 @@
         $query = mysqli_query($GLOBALS['connection'] ,$sql);
 
         $_SESSION['success'] = "product has been deleted successfully !";
-        header('location: ../index.php');
+        header('location: ../index.php');   
     }
 
     function getdata($table){
