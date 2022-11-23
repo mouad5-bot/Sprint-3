@@ -122,7 +122,7 @@
 			?>
 					<tr>
 						<th scope="row"> <?=$row['id'] ?></th>
-						<td> <?=$row['image']       ?></td>
+						<td> <img src="Assets/upload_image/<?=$row['image'] ?>" alt="productImage"></td>
 						<td> <?=$row['name_product']  ?></td>
 						<td> <?=$row['quantity']  ?></td>
 						<td> <?=$row['price']   ?></td>
@@ -146,7 +146,7 @@
 	<div class="modal fade" id="modal-product">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form action="config/scripts.php" method="POST" id="form-product">
+				<form action="config/scripts.php" method="POST" id="form-product" enctype="multipart/form-data">
 					<div class="modal-header">
 						<h5 class="modal-title">Add Product</h5>
 						<a href="#" class="btn-close" data-bs-dismiss="modal"></a>
@@ -177,7 +177,7 @@
 								$table = 'categorie';
 								$data = getdata($table);
 								foreach ($data as $categorie) {
-									echo "<option name=".$categorie['id']."> $categorie[name] </option>";
+									echo "<option value=".$categorie['id']."> $categorie[name] </option>";
 								}
 							?>
 								<!-- <option value="">Please select</option> 

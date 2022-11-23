@@ -54,3 +54,7 @@ a:hover {
 .nav-link{
     color: blanchedalmond;
 }
+.table tbody tr td img{
+    height: 5rem;
+    width: 5rem;
+}

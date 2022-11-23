@@ -97,7 +97,7 @@
         $category    = $_POST['category'];
         $image       = uploadimage();
         $description = $_POST['description'];
-        print_r($_POST);die;
+        
         //SQL INSERT
         $req = "INSERT INTO product ( name, quantity, price, category , image, description)
         VALUES(  '$name', '$quantity', '$price', '$category', '$image', '$description')";
@@ -109,15 +109,18 @@
         mysqli_close($GLOBALS['connection']);  
     }
 
-    function uploadimage()
-    {
+    function uploadimage() 
+    {   
+
         if (isset($_FILES['image']))
         {   
+
             global $connection;
 
             // echo "<pre>";
-            // print_r($_FILES['my_image']);
+            // print_r($_FILES['image']);
             // echo "</pre>";
+        
 
             $img_name = $_FILES['image']['name'];
             $img_size = $_FILES['image']['size'];
@@ -142,7 +145,7 @@
                             if (in_array($img_ex_lc, $allowed_exs)) 
                             {
                                 $new_img_name = uniqid("IMG-", true).'.'.$img_ex_lc;
-                                $img_upload_path = '../Assets/upload_image'.$new_img_name;
+                                $img_upload_path = '../Assets/upload_image/'.$new_img_name;
                                 move_uploaded_file($tmp_name, $img_upload_path);
                             }
                             else {
