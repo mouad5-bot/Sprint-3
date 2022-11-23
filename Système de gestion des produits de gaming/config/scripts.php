@@ -217,6 +217,11 @@
        return $data;
     }
 
+    function coutCategory(){
+        $sql = "SELECT COUNT FROM category";
+
+    }
+
 ?>
 
 <!-- <script>

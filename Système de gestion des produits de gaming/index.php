@@ -65,20 +65,32 @@
 	
     <main class="container">
 
-	<div class="d-flex text-aligne-between">	
-		<div class="card border-success mb-3" style="max-width: 16rem;">
-			<div class="card-header bg-transparent border-success">category</div>
-				<div class="card-body text-success">
-					<h5 class="card-title">Success card title</h5>
+		<div class="d-flex m-3 justify-content-between">
+			<div class="card text-black bg-light " style="max-width: 18rem;">
+				<div class="card-header h4">category</div>
+				<div class="card-body">
+						<h5 class="card-title"> <?=coutCategory();?> </h5>
 				</div>
 			</div>
-			<div class="card border-success mb-3" style="max-width: 16rem;">
-				<div class="card-header bg-transparent border-success">category</div>
-					<div class="card-body text-success">
-						<h5 class="card-title">Success card title</h5>
-					</div>
+			<div class="card text-black bg-light " style="max-width: 18rem;">
+				<div class="card-header h4">Product</div>
+				<div class="card-body">
+						<h5 class="card-title">danger card title</h5>
+				</div>
 			</div>
-		</div>	
+			<div class="card text-black bg-light " style="max-width: 18rem;">
+				<div class="card-header h4">Price </div>
+				<div class="card-body">
+						<h5 class="card-title">Success card title</h5>
+				</div>
+			</div>
+			<div class="card text-black bg-light " style="max-width: 18rem;">
+				<div class="card-header">Admin</div>
+				<div class="card-body">
+						<h5 class="card-title">Success card title</h5>
+				</div>
+			</div>
+		</div>
 		<hr>
 		<div class="container">
 			<div class='h3'>
@@ -95,9 +107,9 @@
 					<th scope="col">#</th>
 					<th scope="col">image</th>
 					<th scope="col">Product </th>
-					<th scope="col">category</th>
 					<th scope="col">quantity</th>
 					<th scope="col">price</th>
+					<th scope="col">category</th>
 					<th scope="col">Description</th>
 					<th scope="col"></th>
 				</tr>
