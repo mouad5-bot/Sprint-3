@@ -7,6 +7,7 @@
 <body class="body">
 
 	<?php
+		$namePage="login";
 		include('../includes/navbar.php');
 	?>
 

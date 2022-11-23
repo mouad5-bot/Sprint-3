@@ -32,7 +32,8 @@
             $_SESSION['admin_name'] =  $admin['full_name'];
             header('location: ../index.php');
         }else{
-            echo "error";
+            $_SESSION['error'] = "email or password is incorret";
+            header('location: ../pages/login.php');
         }
     }
 
@@ -218,8 +219,31 @@
     }
 
     function coutCategory(){
-        $sql = "SELECT COUNT FROM category";
+        $sql = "SELECT COUNT(name) as countC FROM category";
+        $res = mysqli_query($GLOBALS['connection'], $sql); //exicution
+        $row = mysqli_fetch_assoc($res);
+        return $row['countC'] ;
+    }
 
+    function coutProduct(){
+        $sql = "SELECT COUNT(name) as countP FROM product";
+        $res = mysqli_query($GLOBALS['connection'], $sql); //exicution
+        $row = mysqli_fetch_assoc($res);
+        return $row['countP'] ;
+    }
+
+    function sumPrice(){
+        $sql = "SELECT SUM(price) as countPrice FROM product";
+        $res = mysqli_query($GLOBALS['connection'], $sql); //exicution
+        $row = mysqli_fetch_assoc($res);
+        return $row['countPrice'] ;
+    }
+
+    function countAdmin(){
+        $sql = "SELECT COUNT(email) as countA FROM user";
+        $res = mysqli_query($GLOBALS['connection'], $sql); //exicution
+        $row = mysqli_fetch_assoc($res);
+        return $row['countA'] ;
     }
 
 ?>

@@ -11,6 +11,8 @@
 			</ul>
 		</div>
 		<div class="d-flex align-items-center h5 me-5 ">
-			<button type="button" class="btn btn-info">Log in</button>	
+		<?php echo (!isset($namePage))?'
+			<a href="login.php"><button type="button" class="btn btn-info">Log in</button>	</a>':'
+			<a href="Singup.php"><button type="button" class="btn btn-info">Log up</button>	</a>';?>
 		</div>
 	</nav>

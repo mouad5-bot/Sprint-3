@@ -75,19 +75,19 @@
 			<div class="card text-black bg-light " style="max-width: 18rem;">
 				<div class="card-header h4">Product</div>
 				<div class="card-body">
-						<h5 class="card-title">danger card title</h5>
+					<h5 class="card-title"> <?=coutProduct();?> </h5>
 				</div>
 			</div>
 			<div class="card text-black bg-light " style="max-width: 18rem;">
 				<div class="card-header h4">Price </div>
 				<div class="card-body">
-						<h5 class="card-title">Success card title</h5>
+						<h5 class="card-title"> <?=sumPrice();?> </h5>
 				</div>
 			</div>
 			<div class="card text-black bg-light " style="max-width: 18rem;">
 				<div class="card-header">Admin</div>
 				<div class="card-body">
-						<h5 class="card-title">Success card title</h5>
+						<h5 class="card-title"> <?=countAdmin();?> </h5>
 				</div>
 			</div>
 		</div>
