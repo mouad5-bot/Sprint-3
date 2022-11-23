@@ -65,7 +65,7 @@
 	
     <main class="container">
 
-		<div class="d-flex m-3 justify-content-between">
+		<div class="row row-cols-lg-4 row-cols-sm-2 m-3 justify-content-between">
 			<div class="card text-black bg-light " style="max-width: 18rem;">
 				<div class="card-header h4">category</div>
 				<div class="card-body">
@@ -92,52 +92,56 @@
 			</div>
 		</div>
 		<hr>
-		<div class="container">
+		<div class="d-flex justify-content-between mt-5">
 			<div class='h3'>
 				<u>List of products :</u> 
 			</div>
-			<div class="float-end mb-5">
+			<div class=" mb-5">
 				<a href="#modal-product" data-bs-toggle="modal"  class="btn btn-success btn-rounded px-4 rounded-pill">Add Product</a>
 			</div>
 		</div>
-
-        <table class="table">
-          	<thead>
-				<tr>
-					<th scope="col">#</th>
-					<th scope="col">image</th>
-					<th scope="col">Product </th>
-					<th scope="col">quantity</th>
-					<th scope="col">price</th>
-					<th scope="col">category</th>
-					<th scope="col">Description</th>
-					<th scope="col"></th>
-				</tr>
-          	</thead>
-          	<tbody>
-				
-			<?php
-				//DATA FROM getproducts() FUNCTION
-				$products=getProducts();
-				foreach($products as $row)
-				{
-			?>
+        <div class="table-responsive">
+			<table class="table">
+				<thead>
 					<tr>
-						<th scope="row"> <?=$row['id'] ?></th>
-						<td> <img src="Assets/upload_image/<?=$row['image'] ?>" alt="productImage"></td>
-						<td> <?=$row['name_product']  ?></td>
-						<td> <?=$row['quantity']  ?></td>
-						<td> <?=$row['price']   ?></td>
-						<td> <?=$row['name_category']?></td>
-						<td title="<?=$row['description']?>"><?php echo substr($row['description'],0,30); ?> ...</td>
-						<td>
-							<a href="pages/deletAndUpdat.php?id1=<?=$row['id']?>"><button type="button" class="btn btn-outline-info">Edit</button></a>	
-							<a href="config/scripts.php?delete=<?=$row['id']?>"><button type="button" name="delete" class="btn btn-outline-danger">Delete</button>
-						</td>
+						<th scope="col">#</th>
+						<th scope="col">image</th>
+						<th scope="col">Product </th>
+						<th scope="col">quantity</th>
+						<th scope="col">price</th>
+						<th scope="col">category</th>
+						<th scope="col">Description</th>
+						<th scope="col"></th>
+						<th scope="col"></th>
 					</tr>
-				<?php } ?>	
-          	</tbody>
-        </table>
+				</thead>
+				<tbody>
+					
+				<?php
+					//DATA FROM getproducts() FUNCTION
+					$products=getProducts();
+					foreach($products as $row)
+					{
+				?>
+						<tr>
+							<th scope="row"> <?=$row['id'] ?></th>
+							<td> <img src="Assets/upload_image/<?=$row['image'] ?>" alt="productImage"></td>
+							<td> <?=$row['name_product']  ?></td>
+							<td> <?=$row['quantity']  ?></td>
+							<td> <?=$row['price']   ?></td>
+							<td> <?=$row['name_category']?></td>
+							<td title="<?=$row['description']?>"><?php echo substr($row['description'],0,30); ?> ...</td>
+							<td>
+								<a href="pages/deletAndUpdat.php?id1=<?=$row['id']?>"><button type="button" class="btn btn-outline-info">Edit</button></a>	
+							</td>
+							<td>	
+								<a href="config/scripts.php?delete=<?=$row['id']?>"><button type="button" 	name="delete" class="btn btn-outline-danger">Delete</button>
+							</td>
+						</tr>
+					<?php } ?>	
+				</tbody>
+			</table>
+		</div>
     </main>
 
 	<?php
