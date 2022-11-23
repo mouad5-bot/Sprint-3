@@ -24,9 +24,12 @@
 
         //SQL INSERT
         $requet = "SELECT * FROM user WHERE email = '$email' AND password = '$password'";
-        if(mysqli_num_rows(mysqli_query($GLOBALS['connection'],$requet))>0) //c'est pour tester que user est exister 
+        $res = mysqli_query($GLOBALS['connection'],$requet);
+        $admin = mysqli_fetch_assoc($res);
+        if(mysqli_num_rows($res)>0) //c'est pour tester que user est exister 
         {
-            $_SESSION['email'] = $email;    
+            $_SESSION['email'] = $email;
+            $_SESSION['admin_name'] =  $admin['full_name'];
             header('location: ../index.php');
         }else{
             echo "error";
