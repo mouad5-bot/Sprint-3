@@ -66,28 +66,28 @@
     <main class="container">
 
 		<div class="row row-cols-lg-4 row-cols-sm-2 m-3 justify-content-between">
-			<div class="card text-black bg-light " style="max-width: 18rem;">
+			<div class="card text-black bg-light text-center" style="max-width: 18rem;">
 				<div class="card-header h4">category</div>
 				<div class="card-body">
-						<h5 class="card-title"> <?=coutCategory();?> </h5>
+						<h5 class="card-title text-success"> <?=coutCategory();?> </h5>
 				</div>
 			</div>
-			<div class="card text-black bg-light " style="max-width: 18rem;">
+			<div class="card text-black bg-light text-center" style="max-width: 18rem;">
 				<div class="card-header h4">Product</div>
 				<div class="card-body">
-					<h5 class="card-title"> <?=coutProduct();?> </h5>
+					<h5 class="card-title text-success"> <?=coutProduct();?> </h5>
 				</div>
 			</div>
-			<div class="card text-black bg-light " style="max-width: 18rem;">
+			<div class="card text-black bg-light text-center" style="max-width: 18rem;">
 				<div class="card-header h4">Price </div>
 				<div class="card-body">
-						<h5 class="card-title"> <?=sumPrice();?> </h5>
+						<h5 class="card-title text-success"> <?=sumPrice();?> MAD</h5>
 				</div>
 			</div>
-			<div class="card text-black bg-light " style="max-width: 18rem;">
-				<div class="card-header">Admin</div>
+			<div class="card text-black bg-light text-center"  style="max-width: 18rem;">
+				<div class="card-header h4 ">Admin</div>
 				<div class="card-body">
-						<h5 class="card-title"> <?=countAdmin();?> </h5>
+						<h5 class="card-title text-success"> <?=countAdmin();?> </h5>
 				</div>
 			</div>
 		</div>
